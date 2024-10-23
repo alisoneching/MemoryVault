@@ -130,31 +130,78 @@ struct LoginView: View {
 
 struct AddCapsuleView: View {
     var body: some View {
-        VStack {
-            Text("Add a New Time Capsule")
+        VStack(alignment: .center) {
+            Text("Create New Capsule")
+            //font type
                 .font(.title)
-                .padding()
-
-            Spacer()
-
+            //font color
+                .foregroundColor(.white)
+                .frame(width: 700, height: 50)
+            //Set better color later
+                .background(Rectangle().fill(Color.green))
+                .border(Color.black)
+            
             // Fields for creating a new time capsule
             TextField("Capsule Title", text: .constant(""))
                 .padding()
                 .background(Color.gray.opacity(0.2))
                 .cornerRadius(10)
                 .padding()
-
-            Button("Save Capsule") {
-                // Handle capsule saving logic
-            }
-            .font(.headline)
-            .padding()
-            .background(Color.green)
-            .foregroundColor(.white)
-            .cornerRadius(10)
-
+            
+            //Add friends to Time Capsule
+            Text("Invite some friends:")
+            //font type
+                .font(.title)
+            //font color
+                .foregroundColor(.white)
+                .padding()
+            
             Spacer()
+            
+            HStack{
+                //Button to add friends
+                Button("Invite"){
+                    //Insert logic here later
+                }
+            }
+            
+            //Setting lock time
+            Text("Set lock time:")
+            //font type
+                .font(.title)
+            //font color
+                .foregroundColor(.white)
+            //font size
+                .font(.system(size: 20))
+            HStack{
+                
+            }
+            
+            //Setting unlock time
+            Text("Set unlock time:")
+            //font type
+                .font(.title)
+            //font color
+                .foregroundColor(.white)
+            //font size
+                .font(.system(size: 20))
+            HStack{
+                
+            }
+            
+            Button("Create"){
+                //add stuff later
+            }
         }
-        .navigationTitle("Add Capsule")
+        
     }
 }
+    //Page to add stuff into the capsule
+struct MyNewCapsule: View {
+    var body: some View {
+        VStack{
+            Text("My New Capsule")
+        }
+    }
+}
+
