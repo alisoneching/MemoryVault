@@ -1,36 +1,78 @@
 import SwiftUI
 
 struct MainScreen: View {
-    var body: some View {
-        VStack {
-            Text("Your Time Capsules")
-                .font(.title)
-                .padding()
+//    var body: some View {
+//        VStack {
+//            Text("Your Time Capsules")
+//                .font(.title)
+//                .padding()
+//
+//            Spacer()
+//
+//            // List of capsules
+//            List {
+//                Text("Capsule 1")
+//                Text("Capsule 2")
+//                Text("Capsule 3")
+//            }
+//
+//            Spacer()
+//
+//            // Add capsule button
+//            NavigationLink(destination: AddCapsuleView()) {
+//                Text("Add New Capsule")
+//                    .font(.headline)
+//                    .padding()
+//                    .background(Color.blue)
+//                    .foregroundColor(.white)
+//                    .cornerRadius(10)
+//            }
+//            .padding()
+//        }
+//        .navigationTitle("Main Screen")
+//    }
+    let backgroundColor = Color(red: 186/255, green: 194/255, blue: 170/255)
+    let boxColor = Color(red: 105/255, green: 113/255, blue: 90/255)
 
-            Spacer()
-
-            // List of capsules
-            List {
-                Text("Capsule 1")
-                Text("Capsule 2")
-                Text("Capsule 3")
-            }
-
-            Spacer()
-
-            // Add capsule button
-            NavigationLink(destination: AddCapsuleView()) {
-                Text("Add New Capsule")
-                    .font(.headline)
+        var body: some View {
+            VStack {
+                // Top title
+                Text("Memory Vault")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                    .padding(.top, 20)
+                
+                // Search bar
+                TextField("Search for a Capsule", text: .constant(""))
                     .padding()
-                    .background(Color.blue)
-                    .foregroundColor(.white)
+                    .background(Color.white)
                     .cornerRadius(10)
+                    .padding(.horizontal, 20)
+                    .padding(.top, 10)
+
+
+                Spacer()
+
+                // Bottom tab bar
+                HStack {
+                    Spacer()
+                    Image(systemName: "calendar")
+                    Spacer()
+                    Image(systemName: "bell")
+                    Spacer()
+                    Image(systemName: "plus.circle.fill")
+                    Spacer()
+                    Image(systemName: "heart")
+                    Spacer()
+                    Image(systemName: "person.circle")
+                    Spacer()
+                }
+                .padding()
+                .background(boxColor)
+                .foregroundColor(.white)
             }
-            .padding()
+            .background(backgroundColor.edgesIgnoringSafeArea(.all))
         }
-        .navigationTitle("Main Screen")
-    }
 }
 
 struct ContentView: View {
@@ -129,35 +171,39 @@ struct LoginView: View {
 }
 
 struct AddCapsuleView: View {
+    //Colors needed
+    let backgroundColor = Color(red: 186/255,green: 194/255, blue:170/255 )
+    let boxColor = Color(red: 105/255, green: 113/255, blue: 90/255)
+    let buttonColor = Color(red: 78/255, green: 84/255, blue: 67/255)
     var body: some View {
         ZStack{
-            Color.green //background color
-                .ignoresSafeArea()
+            //set background color
+            backgroundColor
+                .edgesIgnoringSafeArea(.all)
+            
             VStack(alignment: .center) {
                 Text("Create New Capsule")
                     .font(.title) //font type
                     .foregroundColor(.white) //font color
                     .frame(width: 775, height: 50) //make frame around text
                 //Color of the frame containing "Create New Capsule"
-                    .background(Rectangle().fill(Color.green))
-                    .border(Color.green)
+                    .background(Rectangle().fill(boxColor))
+                    .border(boxColor)
                 
-                // Fields for creating a new time capsule
-                TextField("Capsule Title", text: .constant(""))
+                //Set Capsule Title
+                TextField("Capsule Name", text: .constant(""))
                     .padding()
-                    .background(Color.gray.opacity(0.2))
-                    .cornerRadius(10)
+                    .foregroundColor(Color.gray) //text color
+                    .background(Color.white) //background of box thing color
+                    .border(boxColor) //background of box thing color
+                    .cornerRadius(30) //shape of box
                     .padding()
                 
                 //Add friends to Time Capsule
                 Text("Invite some friends:")
-                //font type
-                    .font(.title)
-                //font color
-                    .foregroundColor(.white)
+                    .font(.title) //font type
+                    .foregroundColor(.white) //font color
                     .padding()
-                
-                Spacer()
                 
                 HStack{
                     //Button to add friends
@@ -168,33 +214,50 @@ struct AddCapsuleView: View {
                 
                 //Setting lock time
                 Text("Set lock time:")
-                //font type
-                    .font(.title)
-                //font color
-                    .foregroundColor(.white)
-                //font size
-                    .font(.system(size: 20))
+                    .font(.title) //font type
+                    .foregroundColor(.white) //font color
+                    .font(.system(size: 20)) //font size
                 HStack{
                     
                 }
                 
                 //Setting unlock time
                 Text("Set unlock time:")
-                //font type
-                    .font(.title)
-                //font color
-                    .foregroundColor(.white)
-                //font size
-                    .font(.system(size: 20))
+                    .font(.title) //font type
+                    .foregroundColor(.white) //font color
+                    .font(.system(size: 20)) //font size
                 HStack{
                     
                 }
                 
-                Button("Create"){
-                    //add stuff later
-                }
-            }
-        }
-    }
-}
+                //Create button that takes you to the page adding stuff to the capsule
+                NavigationView{
+                    VStack(alignment: .center){
+                        NavigationLink(destination: MyNewCapsule()){
+                            Text("Create") //What the button will say
+                                .font(.title) //font title
+                                .padding()
+                                .foregroundColor(.white) //font color
+                                .background(buttonColor) //background box color
+                                .cornerRadius(1) //shape of button
+                        }//end of NavigationLink
+                        .buttonStyle(PlainButtonStyle()) //button shape
+                    }//end of VStack
+                    .navigationTitle("Create")
+                }//end of Navigation View
+            }//end of VStack
+        }//end of ZStack
+    }//end of body
+}//end of AddCapsuleView
 
+struct MyNewCapsule: View{
+    var body: some View{
+        VStack{
+            Text("My New Capsule")
+                .font(.title)
+                .padding()
+                .foregroundColor(.white)
+        }//end of VStack
+        .navigationTitle("My New Capsule")
+    }//end of body
+}//end of MyNewCapsule
