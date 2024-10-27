@@ -36,7 +36,7 @@ struct MainScreen: View {
 struct ContentView: View {
     @State private var isLoggedIn = false // Track login status
     @State private var showLogin = false // Show login screen if not logged in
-
+    
     var body: some View {
         NavigationView {
             if isLoggedIn {
@@ -133,89 +133,106 @@ struct AddCapsuleView: View {
     let backgroundColor = Color(red: 186/255,green: 194/255, blue:170/255 )
     let boxColor = Color(red: 105/255, green: 113/255, blue: 90/255)
     let buttonColor = Color(red: 78/255, green: 84/255, blue: 67/255)
+    let friendBoxColor = Color(red: 239/255, green: 245/255, blue: 239/255)
+
+    //fake stand in list of friends
+    let friendList = ["a", "b", "c"]
+    
+    
     var body: some View {
-        ZStack{
-            //set background color
-            backgroundColor
-                .edgesIgnoringSafeArea(.all)
-            
-            VStack(alignment: .center) {
-                Text("Create New Capsule")
-                    .font(.title) //font type
-                    .foregroundColor(.white) //font color
-                    .frame(width: 775, height: 50) //make frame around text
-                //Color of the frame containing "Create New Capsule"
-                    .background(Rectangle().fill(boxColor))
-                    .border(boxColor)
+            ZStack{
+                //set background color
+                backgroundColor.edgesIgnoringSafeArea(.all)
                 
-                //Set Capsule Title
-                TextField("Capsule Name", text: .constant(""))
-                    .padding()
-                    .foregroundColor(Color.gray) //text color
-                    .background(Color.white) //background of box thing color
-                    .border(boxColor) //background of box thing color
-                    .cornerRadius(30) //shape of box
-                    .padding()
-                
-                //Add friends to Time Capsule
-                Text("Invite some friends:")
-                    .font(.title) //font type
-                    .foregroundColor(.white) //font color
-                    .padding()
-                
-                HStack{
-                    //Button to add friends
-                    Button("Invite"){
-                        //Insert logic here later
+                VStack(alignment: .center) {
+                    Text("Create New Capsule")
+                        .font(.title) //font type
+                        .foregroundColor(.white) //font color
+                        .frame(width: 775, height: 50) //make frame around text
+                        //Color of the frame containing "Create New Capsule"
+                        .background(Rectangle().fill(boxColor))
+                        .border(boxColor)
+                    
+                    /*Set Capsule Title
+                    Entering the name of the capsule
+                    If no name is entered, the default name is "Capsule Name"
+                    */
+                    TextField("Capsule Name", text: .constant("Capsule Name"))
+                        .padding()
+                        .foregroundColor(Color.gray) //text color
+                        .background(Color.gray.opacity(0.2)) //background of box thing color
+                        .border(boxColor) //background of box thing color
+                        .cornerRadius(30) //shape of box
+                        .padding()
+                    
+                    //Add friends to Time Capsule
+                    Text("Invite some friends:")
+                        .font(.title) //font type
+                        .foregroundColor(.white) //font color
+                    
+                    //Scroll through friends
+                    //Add friends later
+                    ScrollView{
+                        VStack(alignment: .center, spacing: 10){
+                            ForEach(friendList, id: \.self){ friend in
+                                Text(friend)
+                                    .padding()
+                                    .foregroundColor(Color.black) //text color
+                                    .background(friendBoxColor) //box background color
+                                    .cornerRadius(1) //box shape
+                                    .border(boxColor) //border color
+                            }
+                        }
                     }
-                }
-                
-                //Setting lock time
-                Text("Set lock time:")
-                    .font(.title) //font type
-                    .foregroundColor(.white) //font color
-                    .font(.system(size: 20)) //font size
-                HStack{
+                    //put button into scroll view later
+                    HStack{
+                        //Button to add friends
+                        Button("Invite"){
+                            //Insert logic here later
+                        }
+                    }
                     
-                }
-                
-                //Setting unlock time
-                Text("Set unlock time:")
-                    .font(.title) //font type
-                    .foregroundColor(.white) //font color
-                    .font(.system(size: 20)) //font size
-                HStack{
+                    //Setting lock time
+                    Text("Set lock time:")
+                        .font(.title) //font type
+                        .foregroundColor(.white) //font color
+                        .font(.system(size: 20)) //font size
+                    HStack{
+                        
+                    }
                     
-                }
-                
-                //Create button that takes you to the page adding stuff to the capsule
-                NavigationView{
-                    VStack(alignment: .center){
-                        NavigationLink(destination: MyNewCapsule()){
+                    //Setting unlock time
+                    Text("Set unlock time:")
+                        .font(.title) //font type
+                        .foregroundColor(.white) //font color
+                        .font(.system(size: 20)) //font size
+                    HStack{
+                        
+                    }//end of HStack for unlock time
+                    
+                    //Create button that takes you to the page adding stuff to the capsule
+                    NavigationLink(destination: MyNewCapsuleView()){
                             Text("Create") //What the button will say
                                 .font(.title) //font title
                                 .padding()
                                 .foregroundColor(.white) //font color
                                 .background(buttonColor) //background box color
-                                .cornerRadius(1) //shape of button
-                        }//end of NavigationLink
-                        .buttonStyle(PlainButtonStyle()) //button shape
-                    }//end of VStack
-                    .navigationTitle("Create")
-                }//end of Navigation View
-            }//end of VStack
-        }//end of ZStack
+                                .cornerRadius(10) //shape of button
+                    }//end of NavigationLink
+                    .padding()
+                }//end of VStack
+            }//end of ZStack
+           .navigationTitle("Add Capsule")
     }//end of body
 }//end of AddCapsuleView
 
-struct MyNewCapsule: View{
+struct MyNewCapsuleView: View{
     var body: some View{
         VStack{
             Text("My New Capsule")
                 .font(.title)
                 .padding()
-                .foregroundColor(.white)
-        }//end of VStack
+        }
         .navigationTitle("My New Capsule")
     }//end of body
 }//end of MyNewCapsule
