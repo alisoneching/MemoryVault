@@ -11,7 +11,7 @@ import SwiftUI
 struct Memory_VaultApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+           ContentView()
         }
     }
 } 
