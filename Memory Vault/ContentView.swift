@@ -53,15 +53,21 @@ struct MainScreen: View {
             Spacer()
             
             // Bottom tab bar
-            let icons = ["calendar", "bell", "plus.circle.fill", "heart", "person.circle"]
+//            let icons = ["calendar", "bell", "plus.circle.fill", "heart", "person.circle"]
 
             HStack {
-                ForEach(icons, id: \.self) { icon in
-                    Spacer()
-                    Image(systemName: icon)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 24, height: 24)
+                Spacer()
+                Image(systemName: "calendar")
+                Spacer()
+                Image(systemName: "bell")
+                Spacer()
+                Image(systemName: "plus.circle.fill")
+                Spacer()
+                Image(systemName: "heart")
+                Spacer()
+                
+                NavigationLink(destination: ProfileView()) {
+                    Image(systemName: "person.circle")
                 }
                 Spacer()
             }
@@ -83,6 +89,8 @@ struct ContentView: View {
             if isLoggedIn {
                 // Main screen with the list of capsules
                 MainScreen()
+                AddCapsuleView()
+                ProfileView()
             } else {
                 // Home screen with app name and options
                 HomeScreen(isLoggedIn: $isLoggedIn, showLogin: $showLogin)
@@ -94,37 +102,60 @@ struct ContentView: View {
 struct HomeScreen: View {
     @Binding var isLoggedIn: Bool
     @Binding var showLogin: Bool
+    
+    let backgroundColor = Color(red: 186 / 255, green: 194 / 255, blue: 170 / 255)
+    let buttonColor = Color(red: 78 / 255, green: 84 / 255, blue: 67 / 255)
 
     var body: some View {
-        VStack {
-            Text("Memory Vault")
-                .font(.largeTitle)
-                .fontWeight(.bold)
-                .padding()
+        ZStack {
+            backgroundColor
+                .edgesIgnoringSafeArea(.all)
             
-            Spacer()
-            
-            if !isLoggedIn {
-                Button("Create Account") {
-                    // Code to handle account creation
-                }
-                .font(.headline)
-                .padding()
-                .background(Color.blue)
-                .foregroundColor(.white)
-                .cornerRadius(10)
+            VStack {
+                Spacer()
                 
-                Button("Login") {
-                    showLogin.toggle()
+                Text("Welcome to Memory Vault")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                    .foregroundColor(.white)
+                    .padding(.bottom, 40)
+                    .multilineTextAlignment(.center)
+                
+                if !isLoggedIn {
+                    Button(action: {
+                        showLogin.toggle()
+                    }) {
+                        Text("Login")
+                            .font(.headline)
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .background(buttonColor)
+                            .foregroundColor(.white)
+                            .cornerRadius(8)
+                    }
+                    .padding(.horizontal, 40)
+                    
+                    Text("Don't have an account with us?")
+                        .foregroundColor(buttonColor)
+                        .padding(.top, 20)
+                    
+                    Button(action: {
+                        // TODO: Implement account creation
+                    }) {
+                        Text("Create Account")
+                            .font(.headline)
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .background(buttonColor)
+                            .foregroundColor(.white)
+                            .cornerRadius(8)
+                    }
+                    .padding(.horizontal, 40)
+                    .padding(.bottom, 10)
                 }
-                .font(.headline)
-                .padding()
-                .background(Color.green)
-                .foregroundColor(.white)
-                .cornerRadius(10)
+                
+                Spacer()
             }
-            
-            Spacer()
         }
         .sheet(isPresented: $showLogin) { // Use sheet for macOS
             LoginView(isLoggedIn: $isLoggedIn)
