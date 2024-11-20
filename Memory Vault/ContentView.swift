@@ -52,22 +52,28 @@ struct MainScreen: View {
             
             Spacer()
             
-            // Bottom tab bar
-//            let icons = ["calendar", "bell", "plus.circle.fill", "heart", "person.circle"]
-
             HStack {
                 Spacer()
                 Image(systemName: "calendar")
+                    .font(.system(size: 25))
                 Spacer()
-                Image(systemName: "bell")
+                NavigationLink(destination: NotificationsView()) {
+                    Image(systemName: "bell")
+                        .font(.system(size: 25))
+
+                }
                 Spacer()
                 Image(systemName: "plus.circle.fill")
+                    .font(.system(size: 25))
                 Spacer()
-                Image(systemName: "heart")
+                NavigationLink(destination: FriendsView()) {
+                    Image(systemName: "heart")
+                        .font(.system(size: 25))
+                }
                 Spacer()
-                
                 NavigationLink(destination: ProfileView()) {
                     Image(systemName: "person.circle")
+                        .font(.system(size: 25))
                 }
                 Spacer()
             }
