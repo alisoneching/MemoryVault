@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct Memory_VaultApp: App {
+    //to access data in usersData class for all view
+    @StateObject var usersData = userData()
     var body: some Scene {
         WindowGroup {
-           ContentView()
+            ContentView()
+                .environmentObject(usersData)
         }
     }
 } 

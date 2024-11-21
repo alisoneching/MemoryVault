@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleURLTypes</key>
+	<array/>
+</dict>
+</plist>
+<key>NSPhotoLibraryUsageDescription</key>
+<string>Please allow access to your photos in order to add items to the capsule.<./string>
+<key>NSCameraUsageDescription</key>
+<string>We need access to your camera to record videos and/or take photos.</string>
+<key>NSMicrophoneUsageDescripption</key>
+<string>We need access to your microphone to record audio in the video.</string>

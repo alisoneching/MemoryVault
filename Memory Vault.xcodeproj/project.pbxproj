@@ -16,6 +16,12 @@
 		B2931DA62CC5A65B006A29D2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2931DA52CC5A65B006A29D2 /* ContentView.swift */; };
 		B2931DA82CC5A65E006A29D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2931DA72CC5A65E006A29D2 /* Assets.xcassets */; };
 		B2931DAC2CC5A65E006A29D2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2931DAB2CC5A65E006A29D2 /* Preview Assets.xcassets */; };
+		DD8E22EB2CEC2418001BB755 /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8E22EA2CEC2414001BB755 /* CameraManager.swift */; };
+		DD8E22ED2CEC55A9001BB755 /* CMSampleBuffer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8E22EC2CEC559E001BB755 /* CMSampleBuffer+Extension.swift */; };
+		DD8E22EF2CEC56C7001BB755 /* CIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8E22EE2CEC56BF001BB755 /* CIImage+Extension.swift */; };
+		DD8E22F12CEC5ABF001BB755 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8E22F02CEC5AB6001BB755 /* ViewModel.swift */; };
+		DD8E22F52CEEBF4D001BB755 /* userData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8E22F42CEEBF46001BB755 /* userData.swift */; };
+		DD8E22F92CEED13A001BB755 /* Capsule1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8E22F82CEED136001BB755 /* Capsule1View.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +36,13 @@
 		B2931DA72CC5A65E006A29D2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B2931DA92CC5A65E006A29D2 /* Memory_Vault.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Memory_Vault.entitlements; sourceTree = "<group>"; };
 		B2931DAB2CC5A65E006A29D2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		DD158ACC2CE985F3000D3D81 /* Memory-Vault-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Memory-Vault-Info.plist"; sourceTree = SOURCE_ROOT; };
+		DD8E22EA2CEC2414001BB755 /* CameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraManager.swift; sourceTree = "<group>"; };
+		DD8E22EC2CEC559E001BB755 /* CMSampleBuffer+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CMSampleBuffer+Extension.swift"; sourceTree = "<group>"; };
+		DD8E22EE2CEC56BF001BB755 /* CIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CIImage+Extension.swift"; sourceTree = "<group>"; };
+		DD8E22F02CEC5AB6001BB755 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		DD8E22F42CEEBF46001BB755 /* userData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userData.swift; sourceTree = "<group>"; };
+		DD8E22F82CEED136001BB755 /* Capsule1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capsule1View.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +75,7 @@
 		B2931DA22CC5A65B006A29D2 /* Memory Vault */ = {
 			isa = PBXGroup;
 			children = (
+				DD158ACC2CE985F3000D3D81 /* Memory-Vault-Info.plist */,
 				B2931DA32CC5A65B006A29D2 /* Memory_VaultApp.swift */,
 				B2931DA52CC5A65B006A29D2 /* ContentView.swift */,
 				B2931DA72CC5A65E006A29D2 /* Assets.xcassets */,
@@ -72,6 +86,12 @@
 				B24BBD032CD834DC00C8437E /* ProfileView.swift */,
 				B24BBD052CD834ED00C8437E /* FriendsView.swift */,
 				B24BBD072CD834F800C8437E /* NotificationsView.swift */,
+				DD8E22EA2CEC2414001BB755 /* CameraManager.swift */,
+				DD8E22EC2CEC559E001BB755 /* CMSampleBuffer+Extension.swift */,
+				DD8E22EE2CEC56BF001BB755 /* CIImage+Extension.swift */,
+				DD8E22F02CEC5AB6001BB755 /* ViewModel.swift */,
+				DD8E22F42CEEBF46001BB755 /* userData.swift */,
+				DD8E22F82CEED136001BB755 /* Capsule1View.swift */,
 			);
 			path = "Memory Vault";
 			sourceTree = "<group>";
@@ -156,11 +176,17 @@
 			files = (
 				B24BBD062CD834ED00C8437E /* FriendsView.swift in Sources */,
 				B2931DA62CC5A65B006A29D2 /* ContentView.swift in Sources */,
+				DD8E22F52CEEBF4D001BB755 /* userData.swift in Sources */,
+				DD8E22EB2CEC2418001BB755 /* CameraManager.swift in Sources */,
+				DD8E22F12CEC5ABF001BB755 /* ViewModel.swift in Sources */,
+				DD8E22F92CEED13A001BB755 /* Capsule1View.swift in Sources */,
 				B24BBD022CD8336100C8437E /* MyNewCapsuleView.swift in Sources */,
 				B24BBD042CD834DC00C8437E /* ProfileView.swift in Sources */,
 				B2931DA42CC5A65B006A29D2 /* Memory_VaultApp.swift in Sources */,
 				B24BBD002CD831E800C8437E /* AddCapsuleView.swift in Sources */,
+				DD8E22EF2CEC56C7001BB755 /* CIImage+Extension.swift in Sources */,
 				B24BBD082CD834F800C8437E /* NotificationsView.swift in Sources */,
+				DD8E22ED2CEC55A9001BB755 /* CMSampleBuffer+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,6 +196,7 @@
 		B2931DAD2CC5A65E006A29D2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -220,6 +247,8 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				SUPPORTED_PLATFORMS = macosx;
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -228,6 +257,7 @@
 		B2931DAE2CC5A65E006A29D2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -269,8 +299,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				SUPPORTED_PLATFORMS = macosx;
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
@@ -285,8 +318,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Memory Vault/Preview Content\"";
+				DEVELOPMENT_TEAM = ZLRGHU6ZN5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Memory-Vault-Info.plist";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -321,8 +356,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Memory Vault/Preview Content\"";
+				DEVELOPMENT_TEAM = ZLRGHU6ZN5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Memory-Vault-Info.plist";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;

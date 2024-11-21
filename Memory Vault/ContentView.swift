@@ -1,8 +1,16 @@
 import SwiftUI
+import PhotosUI
+import Photos
+import UIKit
+import AVFoundation
 
 struct MainScreen: View {
     let backgroundColor = Color(red: 186/255, green: 194/255, blue: 170/255)
     let boxColor = Color(red: 105/255, green: 113/255, blue: 90/255)
+    
+    //to access data in usersData class
+    @EnvironmentObject var usersData: userData
+    
     var body: some View {
         VStack {
             Text("Your Time Capsules")
@@ -13,9 +21,35 @@ struct MainScreen: View {
 
             // List of capsules
             List {
-                Text("Capsule 1")
-                Text("Capsule 2")
-                Text("Capsule 3")
+                //Create button that takes you to the page adding stuff to the capsule
+                NavigationLink(destination: Capsule1View()){
+                    Text("Capsule 1: \(usersData.capsuleName)")
+                        .font(.headline)
+                        .padding()
+                        .background(Color.blue)
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
+                }//end of NavigationLink to MyNewCapsule Page
+                //Goes nowhere because only implemented 1 capsule
+                //for decoration
+                NavigationLink(destination: MainScreen()){
+                    Text("Capsule 2:")
+                        .font(.headline)
+                        .padding()
+                        .background(Color.blue)
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
+                }//end of NavigationLink
+                //Goes nowhere because only implemented 1 capsule
+                //for decoration
+                NavigationLink(destination: MainScreen()){
+                    Text("Capsule 3:")
+                        .font(.headline)
+                        .padding()
+                        .background(Color.blue)
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
+                }//end of NavigationLink
             }
             
             Spacer()
@@ -75,9 +109,10 @@ struct MainScreen: View {
 }
  
 struct ContentView: View {
+    
     @State private var isLoggedIn = false // Track login status
     @State private var showLogin = false // Show login screen if not logged in
-    
+
     var body: some View {
         NavigationView {
             if isLoggedIn {

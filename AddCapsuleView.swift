@@ -1,14 +1,12 @@
 import SwiftUI
-/*
-    Since we scaled down, I removed the friends section
-    Can comment back in if changed mind
-    - Elsa
- */
-
+import PhotosUI
+import Photos
+import UIKit
+import AVFoundation
 
 struct AddCapsuleView: View {
     //Colors needed
-    let backgroundColor = Color(red: 186/255,green: 194/255, blue:170/255 )
+    let backgroundColor = Color(red: 186/255,green: 194/255, blue:170/255)
     let boxColor = Color(red: 105/255, green: 113/255, blue: 90/255)
     let buttonColor = Color(red: 78/255, green: 84/255, blue: 67/255)
     /*
@@ -19,11 +17,15 @@ struct AddCapsuleView: View {
     */
     
     //For the date
-    @State private var unlockTime = Date()
-    @State private var lockTime = Date()
+    @StateObject private var lock = userData()
+    @StateObject private var unlock = userData()
     
     //For storing capsule name
-    @State private var capsuleName: String = ""
+    @StateObject private var name = userData()
+    
+    //State property so we can go to MyNewCapsuleView
+    //@StateObject private var viewModel = ViewModel()
+    
     var body: some View {
         ZStack{
             //set background color
@@ -38,7 +40,7 @@ struct AddCapsuleView: View {
                     .border(boxColor)
                     
                 //Set Capsule Name
-                TextField("Capsule Name", text: $capsuleName)
+                TextField("Capsule Name", text: $name.capsuleName)
                     //.padding()
                     .foregroundColor(Color.gray) //text color
                     .background(Color.gray.opacity(0.2)) //background of box thing color
@@ -76,7 +78,7 @@ struct AddCapsuleView: View {
                     .foregroundColor(.white) //font color
                     .font(.system(size: 20)) //font size
                 //Date thing
-                DatePicker("", selection: $lockTime, displayedComponents: [.date, .hourAndMinute])
+                DatePicker("", selection: $lock.lockTime, displayedComponents: [.date, .hourAndMinute])
                     .frame(width: 175, height: 50)
                     
                 //Setting unlock time
@@ -85,11 +87,11 @@ struct AddCapsuleView: View {
                     .foregroundColor(.white) //font color
                     .font(.system(size: 20)) //font size
                 //Date thing
-                DatePicker("", selection: $unlockTime, displayedComponents: [.date, .hourAndMinute])
+                DatePicker("", selection: $unlock.unlockTime, displayedComponents: [.date, .hourAndMinute])
                     .frame(width: 175, height: 50)
                     
                 //Create button that takes you to the page adding stuff to the capsule
-                NavigationLink(destination: MyNewCapsuleView()) {
+                NavigationLink(destination: MyNewCapsuleView(name: name)){
                     Text("Create")
                         .font(.headline)
                         .padding()
@@ -101,7 +103,6 @@ struct AddCapsuleView: View {
                 .padding()
                     
                 //Icons
-                
                 HStack{
                     //Button to send user to something Page
                     NavigationLink(destination: NotificationsView()){
@@ -149,4 +150,6 @@ struct AddCapsuleView: View {
         }//end of ZStack
     }//end of body
 }//end of AddCapsuleView
+
+
 
