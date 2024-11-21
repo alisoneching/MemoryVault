@@ -104,7 +104,7 @@ struct AddCapsuleView: View {
                     .padding(.horizontal, 30)
                     
                 //Create button that takes you to the page adding stuff to the capsule
-                NavigationLink(destination: MyNewCapsuleView(name: name)){
+                NavigationLink(destination: MyNewCapsuleView()){
                     Text("Create")
                         .font(.headline)
                         .foregroundColor(.white)
