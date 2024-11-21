@@ -54,16 +54,38 @@ struct MainScreen: View {
             
             Spacer()
 
-            // Add capsule button
-            NavigationLink(destination: AddCapsuleView()) {
-                Text("Add New Capsule")
-                    .font(.headline)
-                    .padding()
-                    .background(Color.blue)
-                    .foregroundColor(.white)
-                    .cornerRadius(10)
+            .padding()
+            HStack {
+                Spacer()
+                Image(systemName: "calendar")
+                    .font(.system(size: 25))
+                Spacer()
+                NavigationLink(destination: NotificationsView()) {
+                    Image(systemName: "bell")
+                        .font(.system(size: 25))
+
+                }
+                Spacer()
+                NavigationLink(destination: AddCapsuleView()) {
+                    Image(systemName: "plus.circle.fill")
+                        .font(.system(size: 25))
+                }
+                Spacer()
+                NavigationLink(destination: FriendsView()) {
+                    Image(systemName: "heart")
+                        .font(.system(size: 25))
+                }
+                Spacer()
+                NavigationLink(destination: ProfileView()) {
+                    Image(systemName: "person.circle")
+                        .font(.system(size: 25))
+                }
+                Spacer()
             }
             .padding()
+            .background(boxColor)
+            .foregroundColor(.white)
+            .background(backgroundColor.edgesIgnoringSafeArea(.all))
 
         }
         .navigationTitle("Main Screen")
