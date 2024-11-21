@@ -130,8 +130,9 @@ struct ContentView: View {
             if isLoggedIn {
                 // Main screen with the list of capsules
                 MainScreen()
-                AddCapsuleView()
-                ProfileView()
+              //  AddCapsuleView()
+             //   ProfileView()
+            //Commented out ^ because it was not going to Main Screen - Elsa
             } else {
                 // Home screen with app name and options
                 HomeScreen(isLoggedIn: $isLoggedIn, showLogin: $showLogin)
