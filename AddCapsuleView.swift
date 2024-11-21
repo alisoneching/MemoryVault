@@ -16,12 +16,8 @@ struct AddCapsuleView: View {
     let friendList = ["asjfnsk", "bsdnskj", "cskdcnsk"]
     */
     
-    //For the date
-    @StateObject private var lock = userData()
-    @StateObject private var unlock = userData()
-    
-    //For storing capsule name
-    @StateObject private var name = userData()
+    //to access data in usersData class
+    @EnvironmentObject var usersData: userData
     
     //State property so we can go to MyNewCapsuleView
     //@StateObject private var viewModel = ViewModel()
