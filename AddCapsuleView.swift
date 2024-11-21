@@ -16,12 +16,8 @@ struct AddCapsuleView: View {
     let friendList = ["asjfnsk", "bsdnskj", "cskdcnsk"]
     */
     
-    //For the date
-    @StateObject private var lock = userData()
-    @StateObject private var unlock = userData()
-    
-    //For storing capsule name
-    @StateObject private var name = userData()
+    //to access data in usersData class
+    @EnvironmentObject var usersData: userData
     
     //State property so we can go to MyNewCapsuleView
     //@StateObject private var viewModel = ViewModel()
@@ -40,7 +36,7 @@ struct AddCapsuleView: View {
                     .border(boxColor)
                     
                 //Set Capsule Name
-                TextField("Capsule Name", text: $name.capsuleName)
+                TextField("Capsule Name", text: $usersData.capsuleName)
                     //.padding()
                     .foregroundColor(Color.gray) //text color
                     .background(Color.gray.opacity(0.2)) //background of box thing color
@@ -78,7 +74,7 @@ struct AddCapsuleView: View {
                     .foregroundColor(.white) //font color
                     .font(.system(size: 20)) //font size
                 //Date thing
-                DatePicker("", selection: $lock.lockTime, displayedComponents: [.date, .hourAndMinute])
+                DatePicker("", selection: $usersData.lockTime, displayedComponents: [.date, .hourAndMinute])
                     .frame(width: 175, height: 50)
                     
                 //Setting unlock time
@@ -87,11 +83,11 @@ struct AddCapsuleView: View {
                     .foregroundColor(.white) //font color
                     .font(.system(size: 20)) //font size
                 //Date thing
-                DatePicker("", selection: $unlock.unlockTime, displayedComponents: [.date, .hourAndMinute])
+                DatePicker("", selection: $usersData.unlockTime, displayedComponents: [.date, .hourAndMinute])
                     .frame(width: 175, height: 50)
                     
                 //Create button that takes you to the page adding stuff to the capsule
-                NavigationLink(destination: MyNewCapsuleView(name: name)){
+                NavigationLink(destination: MyNewCapsuleView()){
                     Text("Create")
                         .font(.headline)
                         .padding()

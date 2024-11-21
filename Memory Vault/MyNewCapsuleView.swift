@@ -5,9 +5,6 @@ import UIKit
 import AVFoundation
 
 struct MyNewCapsuleView: View {
-    //Capsule Name
-    @ObservedObject var name: userData
-    
     //State properties for user input within the capsule view
     @State private var capsuleContent: String = ""
     @State private var isPrivate: Bool = false
