@@ -37,7 +37,7 @@ struct AddCapsuleView: View {
                     .border(boxColor)
                
                 VStack(alignment: .leading) {
-                    TextField("Enter capsule name", text: $name.capsuleName)
+                    TextField("Enter capsule name", text: $usersData.capsuleName)
                         .padding()
                         .background(Color.white)
                         .cornerRadius(50)
@@ -75,7 +75,7 @@ struct AddCapsuleView: View {
                         .foregroundColor(.white)
                         .bold()
                                 
-                    DatePicker("", selection: $lock.lockTime, displayedComponents: [.date, .hourAndMinute])
+                    DatePicker("", selection: $usersData.lockTime, displayedComponents: [.date, .hourAndMinute])
                             .datePickerStyle(.compact)
                             .labelsHidden()
                             .padding()
@@ -90,7 +90,7 @@ struct AddCapsuleView: View {
                         .foregroundColor(.white)
                         .bold()
                         
-                    DatePicker("", selection: $unlock.unlockTime, displayedComponents: [.date, .hourAndMinute])
+                    DatePicker("", selection: $usersData.unlockTime, displayedComponents: [.date, .hourAndMinute])
                         .datePickerStyle(.compact)
                         .labelsHidden()
                         .padding()
