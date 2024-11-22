@@ -76,39 +76,39 @@ struct MainScreen: View {
                     
             .padding()
                     HStack {
-                Spacer()
-                Image(systemName: "calendar")
-                    .font(.system(size: 25))
-                Spacer()
-                NavigationLink(destination: NotificationsView()) {
-                    Image(systemName: "bell")
-                        .font(.system(size: 25))
+                        Spacer()
+                        NavigationLink(destination: MainScreen()) {
+                            Image(systemName: "calendar")
+                                .font(.system(size: 25))
+                        }
+                        Spacer()
+                        NavigationLink(destination: NotificationsView()) {
+                            Image(systemName: "bell")
+                                .font(.system(size: 25))
+                        }
+                        Spacer()
+                        NavigationLink(destination: AddCapsuleView()) {
+                            Image(systemName: "plus.circle.fill")
+                                .font(.system(size: 25))
+                        }
+                        Spacer()
+                        NavigationLink(destination: FriendsView()) {
+                            Image(systemName: "heart")
+                                .font(.system(size: 25))
+                        }
+                        Spacer()
+                        NavigationLink(destination: ProfileView()) {
+                            Image(systemName: "person.circle")
+                                .font(.system(size: 25))
+                        }
+                        Spacer()
+                    }
+                    .padding()
+                    .background(boxColor)
+                    .foregroundColor(.white)
+                    .background(backgroundColor.edgesIgnoringSafeArea(.all))
 
                 }
-                Spacer()
-                NavigationLink(destination: AddCapsuleView()) {
-                    Image(systemName: "plus.circle.fill")
-                        .font(.system(size: 25))
-                }
-                Spacer()
-                NavigationLink(destination: FriendsView()) {
-                    Image(systemName: "heart")
-                        .font(.system(size: 25))
-                }
-                Spacer()
-                NavigationLink(destination: ProfileView()) {
-                    Image(systemName: "person.circle")
-                        .font(.system(size: 25))
-                }
-                Spacer()
-            }
-            .padding()
-            .background(boxColor)
-            .foregroundColor(.white)
-            .background(backgroundColor.edgesIgnoringSafeArea(.all))
-
-        }
-        
         }
     }
 }

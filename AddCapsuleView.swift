@@ -114,8 +114,10 @@ struct AddCapsuleView: View {
         
         HStack {
             Spacer()
-            Image(systemName: "calendar")
-                .font(.system(size: 25))
+            NavigationLink(destination: MainScreen()) {
+                Image(systemName: "calendar")
+                    .font(.system(size: 25))
+            }
             Spacer()
             NavigationLink(destination: NotificationsView()) {
                 Image(systemName: "bell")
