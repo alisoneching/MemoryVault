@@ -26,23 +26,24 @@ struct AddCapsuleView: View {
         ZStack{
             //set background color
             backgroundColor.edgesIgnoringSafeArea(.all)
-            VStack(alignment: .center) {
-                Text("Create New Capsule")
+            VStack(spacing: 20) {
+                Text("CREATE NEW CAPSULE")
                     .font(.title) //font type
+                    .bold()
                     .foregroundColor(.white) //font color
-                    .frame(width: 775, height: 50) //make frame around text
+                    .frame(width: 775, height: 100) //make frame around text
                     //Color of the frame containing "Create New Capsule"
                     .background(Rectangle().fill(boxColor))
                     .border(boxColor)
-                    
-                //Set Capsule Name
-                TextField("Capsule Name", text: $usersData.capsuleName)
-                    //.padding()
-                    .foregroundColor(Color.gray) //text color
-                    .background(Color.gray.opacity(0.2)) //background of box thing color
-                    .border(boxColor) //background of box thing color
-                    .cornerRadius(30) //shape of box
-                    .frame(width: 250, height: 100) //size of box
+               
+                VStack(alignment: .leading) {
+                    TextField("Enter capsule name", text: $usersData.capsuleName)
+                        .padding()
+                        .background(Color.white)
+                        .cornerRadius(50)
+                        .frame(width: 300, height: 50)
+                }
+                .padding(.vertical, 30)
                     
                 /*
                 //Scroll through friends
@@ -67,83 +68,80 @@ struct AddCapsuleView: View {
                     }
                 }//end of HStack for invite button
                 */
-                    
-                //Setting lock time
-                Text("Set lock time:")
-                    .font(.title) //font type
-                    .foregroundColor(.white) //font color
-                    .font(.system(size: 20)) //font size
-                //Date thing
-                DatePicker("", selection: $usersData.lockTime, displayedComponents: [.date, .hourAndMinute])
-                    .frame(width: 175, height: 50)
+                
+                // Setting lock time
+                VStack(alignment: .leading) {
+                    Text("Set Lock Time:")
+                        .foregroundColor(.white)
+                        .bold()
+                                
+                    DatePicker("", selection: $usersData.lockTime, displayedComponents: [.date, .hourAndMinute])
+                            .datePickerStyle(.compact)
+                            .labelsHidden()
+                            .padding()
+                            .cornerRadius(50)
+                            .frame(height: 50)
+                    }
+                    .padding(.horizontal, 30)
                     
                 //Setting unlock time
-                Text("Set unlock time:")
-                    .font(.title) //font type
-                    .foregroundColor(.white) //font color
-                    .font(.system(size: 20)) //font size
-                //Date thing
-                DatePicker("", selection: $usersData.unlockTime, displayedComponents: [.date, .hourAndMinute])
-                    .frame(width: 175, height: 50)
+                VStack(alignment: .leading) {
+                    Text("Set Unlock Time:")
+                        .foregroundColor(.white)
+                        .bold()
+                        
+                    DatePicker("", selection: $usersData.unlockTime, displayedComponents: [.date, .hourAndMinute])
+                        .datePickerStyle(.compact)
+                        .labelsHidden()
+                        .padding()
+                        .cornerRadius(50)
+                        .frame(height: 50)
+                    }
+                    .padding(.horizontal, 30)
                     
                 //Create button that takes you to the page adding stuff to the capsule
                 NavigationLink(destination: MyNewCapsuleView()){
                     Text("Create")
                         .font(.headline)
-                        .padding()
-                        .background(Color.blue)
                         .foregroundColor(.white)
+                        .frame(width: 200)
+                        .padding()
+                        .background(buttonColor)
                         .cornerRadius(10)
                 }//end of NavigationLink to MyNewCapsule Page
-                .padding()
-                .padding()
-                    
-                //Icons
-                HStack{
-                    //Button to send user to something Page
-                    NavigationLink(destination: NotificationsView()){
-                        Image("today")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 60, height: 45)
-                    }//end of NavigationLink for
-                    
-                    //Button to send user to Notifications Page
-                    NavigationLink(destination: NotificationsView()){
-                        Image("Icon")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 60, height: 45)
-                    }//end of NavigationLink for Notifications Page button
-                    
-                    //Just an image for add capsule
-                    Image("add")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 60, height: 45)
-                    
-                    //Button to send user to Friends Page
-                    NavigationLink(destination: FriendsView()){
-                        Image("favorite")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 60, height: 45)
-                    }//end of NavigationLink for Friends page button
-                        
-                        //Button to send user to Profile Page
-                    NavigationLink(destination: ProfileView()){
-                        Image("account_circle")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 60, height: 45)
-                    }//end of NavigationLink for Profile Page button
-                }//end of HStack for icons
-                .frame(width: 775, height: 75) //make frame around icons
-                //Color of the frame containing the icons
-                .background(Rectangle().fill(boxColor))
-                .border(boxColor)
             }//end of VStack
         }//end of ZStack
+        
+        HStack {
+            Spacer()
+            Image(systemName: "calendar")
+                .font(.system(size: 25))
+            Spacer()
+            NavigationLink(destination: NotificationsView()) {
+                Image(systemName: "bell")
+                    .font(.system(size: 25))
+
+            }
+            Spacer()
+            Image(systemName: "plus.circle.fill")
+                .font(.system(size: 25))
+            Spacer()
+            NavigationLink(destination: FriendsView()) {
+                Image(systemName: "heart")
+                    .font(.system(size: 25))
+            }
+            Spacer()
+            NavigationLink(destination: ProfileView()) {
+                Image(systemName: "person.circle")
+                    .font(.system(size: 25))
+            }
+            Spacer()
+        }
+
+        .padding()
+        .background(boxColor)
+        .foregroundColor(.white)
+        .background(backgroundColor.edgesIgnoringSafeArea(.all))
     }//end of body
 }//end of AddCapsuleView
 

@@ -58,52 +58,36 @@ struct Capsule1View: View {
                 
                 Spacer()
                 
-                //Icons
-                HStack{
-                    //Button to send user to something Page
-                    NavigationLink(destination: NotificationsView()){
-                        Image("today")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 60, height: 45)
-                    }//end of NavigationLink for
-                    
-                    //Button to send user to Notifications Page
-                    NavigationLink(destination: NotificationsView()){
-                        Image("Icon")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 60, height: 45)
-                    }//end of NavigationLink for Notifications Page button
-                    
-                    //Button to send user to Add Capsule Page
-                    NavigationLink(destination: AddCapsuleView()){
-                        Image("add")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 60, height: 45)
-                    }//end of NavigationLink for Add Capsule Page button
-                    
-                    //Button to send user to Friends Page
-                    NavigationLink(destination: FriendsView()){
-                        Image("favorite")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 60, height: 45)
-                    }//end of NavigationLink for Friends page button
-                        
-                        //Button to send user to Profile Page
-                    NavigationLink(destination: ProfileView()){
-                        Image("account_circle")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 60, height: 45)
-                    }//end of NavigationLink for Profile Page button
-                }//end of HStack for icons
-                .frame(width: 775, height: 75) //make frame around icons
-                //Color of the frame containing the icons
-                .background(Rectangle().fill(boxColor))
-                .border(boxColor)
+                HStack {
+                    Spacer()
+                    Image(systemName: "calendar")
+                        .font(.system(size: 25))
+                    Spacer()
+                    NavigationLink(destination: NotificationsView()) {
+                        Image(systemName: "bell")
+                            .font(.system(size: 25))
+
+                    }
+                    Spacer()
+                    Image(systemName: "plus.circle.fill")
+                        .font(.system(size: 25))
+                    Spacer()
+                    NavigationLink(destination: FriendsView()) {
+                        Image(systemName: "heart")
+                            .font(.system(size: 25))
+                    }
+                    Spacer()
+                    NavigationLink(destination: ProfileView()) {
+                        Image(systemName: "person.circle")
+                            .font(.system(size: 25))
+                    }
+                    Spacer()
+                }
+
+                .padding()
+                .background(boxColor)
+                .foregroundColor(.white)
+                .background(backgroundColor.edgesIgnoringSafeArea(.all))
             }//end of VStack
         }//end of ZStack
     }//end of body
