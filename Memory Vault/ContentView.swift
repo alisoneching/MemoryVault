@@ -54,8 +54,28 @@ struct MainScreen: View {
             
             Spacer()
 
+            .navigationTitle("Main Screen")
+            //   var body: some View {
+                VStack {
+                    // Top title
+                    Text("Memory Vault")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                        .padding(.top, 20)
+                    
+                    // Search bar
+                    TextField("Search for a Capsule", text: .constant(""))
+                        .padding()
+                        .background(Color.white)
+                        .cornerRadius(10)
+                        .padding(.horizontal, 20)
+                        .padding(.top, 10)
+                    
+                    
+                    Spacer()
+                    
             .padding()
-            HStack {
+                    HStack {
                 Spacer()
                 Image(systemName: "calendar")
                     .font(.system(size: 25))
@@ -88,56 +108,7 @@ struct MainScreen: View {
             .background(backgroundColor.edgesIgnoringSafeArea(.all))
 
         }
-        .navigationTitle("Main Screen")
-        //   var body: some View {
-        VStack {
-            // Top title
-            Text("Memory Vault")
-                .font(.largeTitle)
-                .fontWeight(.bold)
-                .padding(.top, 20)
-            
-            // Search bar
-            TextField("Search for a Capsule", text: .constant(""))
-                .padding()
-                .background(Color.white)
-                .cornerRadius(10)
-                .padding(.horizontal, 20)
-                .padding(.top, 10)
-            
-            
-            Spacer()
-            
-            HStack {
-                Spacer()
-                Image(systemName: "calendar")
-                    .font(.system(size: 25))
-                Spacer()
-                NavigationLink(destination: NotificationsView()) {
-                    Image(systemName: "bell")
-                        .font(.system(size: 25))
-
-                }
-                Spacer()
-                Image(systemName: "plus.circle.fill")
-                    .font(.system(size: 25))
-                Spacer()
-                NavigationLink(destination: FriendsView()) {
-                    Image(systemName: "heart")
-                        .font(.system(size: 25))
-                }
-                Spacer()
-                NavigationLink(destination: ProfileView()) {
-                    Image(systemName: "person.circle")
-                        .font(.system(size: 25))
-                }
-                Spacer()
-            }
-
-            .padding()
-            .background(boxColor)
-            .foregroundColor(.white)
-            .background(backgroundColor.edgesIgnoringSafeArea(.all))
+        
         }
     }
 }
